@@ -6,6 +6,9 @@ import 'package:quewie_pos/core/theme/app_color.dart';
 class AppTheme {
   /// Light Theme (default)
   static ThemeData lightTheme = ThemeData(
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: AppColor.primary
+    ),
     
     brightness: Brightness.light,
     primaryColor: AppColor.primary,

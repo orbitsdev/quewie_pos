@@ -17,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _obscurePassword = true;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                       const Gap(30),
 
                       // Login Button
-                      SizedBox(
+                     isLoading ? Container(child: Center(child: CircularProgressIndicator(),),) : SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -137,8 +138,15 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          onPressed: () {
+                          onPressed: () async  {
                             if (_formKey.currentState!.validate()) {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              await Future.delayed(Duration(seconds: 2));
+                              setState(() {
+                                isLoading = false;
+                              });
                               Get.snackbar(
                                 "Login Success",
                                 "Email: ${_emailController.text}",
@@ -155,6 +163,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
+
+                      
                       ),
                     ],
                   ),
