@@ -129,8 +129,8 @@ class _LoginPageState extends State<LoginPage> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColor.primary,
-                            foregroundColor: Colors.white,
+                            backgroundColor: AppColor.backgroundDark,
+                            foregroundColor: AppColor.textLight,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(
                               
@@ -143,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                                 "Login Success",
                                 "Email: ${_emailController.text}",
                                 backgroundColor: AppColor.primaryLight,
-                                colorText: Colors.white,
+                                colorText: AppColor.textLight,
                               );
                             }
                           },
